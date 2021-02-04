@@ -5,24 +5,9 @@ var client=require('../db/db.js')
 
 router.get('/',(req,res)=>{
   //res.redirect('/list')
-  res.render("elements/index", {viewTitle:'FastBus' });
+  res.render("elements/index", { viewTitle: 'GYM' });
 })
 
-router.get('/destination',(req,res)=>{
-  //res.redirect('/list')
-  res.render("elements/destination", {viewTitle:'FastBus' });
-})
-
-
-router.get('/pricing',(req,res)=>{
-  //res.redirect('/list')
-  res.render("elements/pricing", {viewTitle:'FastBus' });
-})
-
-router.get('/contact',(req,res)=>{
-  //res.redirect('/list')
-  res.render("elements/contact", {viewTitle:'FastBus' });
-})
 
 
 /*
