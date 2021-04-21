@@ -1,22 +1,26 @@
-require('./db/db.js');
-const config=require('./config/config.js');
-const express=require('express');
-const path=require('path');
-const exphbs=require('express-handlebars');
-const indexController=require('./controllers/index');
-const bodyParser=require('body-parser');
+const init = require('./db/init.sequelize.js');
+const config = require('./config/connection.server.js');
+const db = require('./db/models.sequelize.js');
+const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const routes = require('./routes/routes');
+const bodyParser = require('body-parser');
 
-var app=express()
+
+
+var app = express()
 app.set('views', path.join(__dirname, '/views/'));
-
-app.engine('hbs',exphbs({extname:'hbs',defaultLayout:'mainLayout',layoutsDir:__dirname+'/views/layout/'}))
-app.set('view engine','hbs')
-app.listen(process.env.PORT || 5000,()=>{
-    console.log("Express server is started at port : "+config.port);
+app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layout/' }))
+app.set('view engine', 'hbs')
+app.listen(process.env.PORT || config.port, () => {
+    console.log("Express server is started at port : " + config.port);
 })
 app.use(bodyParser.urlencoded({
-    extended:true
+    extended: true
 }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '/views/assets/')));
-app.use('/',indexController);
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
+app.use('/', routes)
