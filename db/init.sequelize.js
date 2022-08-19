@@ -7,7 +7,7 @@ var sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     port: dbConfig.port,
     native: dbConfig.native,
     dialectOptions: {
-        ssl: true
+        ssl: false
     },
     pool: {
         max: dbConfig.pool.max,

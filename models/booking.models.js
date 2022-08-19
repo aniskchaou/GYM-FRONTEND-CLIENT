@@ -2,10 +2,10 @@
 var sequelize = require("../db/init.sequelize.js");
 var Sequelize = require('sequelize');
 
-var User = sequelize.define('user', {
+var Booking = sequelize.define('booking', {
     name: Sequelize.STRING,
-    birthday: Sequelize.DATE
+    date: Sequelize.STRING
 });
 
 
-module.exports = User;
+module.exports = Booking;

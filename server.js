@@ -6,7 +6,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const routes = require('./routes/routes');
 const bodyParser = require('body-parser');
-
+var cors = require('cors')
 
 
 var app = express()
@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 app.use(bodyParser.json())
+app.use(cors())
 app.use(express.static(path.join(__dirname, '/views/assets/')));
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
