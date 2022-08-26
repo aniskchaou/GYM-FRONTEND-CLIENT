@@ -16,10 +16,10 @@
     }
 }; */
 module.exports = {
-    HOST: "ec2-34-236-215-156.compute-1.amazonaws.com",
-    USER: "chbyiyvpixlzez",
-    PASSWORD: "5b961ee894b0d83e8254d99a023484edb893aac3ec1d10f1bbdb67d0d5e69713",
-    DB: "d44nd3kpidbi5r",
+    HOST: "ec2-54-208-104-27.compute-1.amazonaws.com",
+    USER: "lofwdfzefiopcu",
+    PASSWORD: "6e3c3405612222f334ba183de4f3256e223e1f9877266fc21b453e0186318116",
+    DB: "desbd65qfb62k",
     dialect: "postgres",
     port: 5432,
     native: false,
