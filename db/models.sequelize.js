@@ -35,8 +35,8 @@ sequelize.sync().then(function () {
     HeaderSettings.create(seeds.getHeaderSettings())
     LocalisationSettings.create(seeds.getLocalisationSettings())
     NotificationSettings.create(seeds.getNotificationSettings())
-    User.create();
-    /*Activity.create();
+   /* User.create();
+    Activity.create();
     Booking.create();
     Course.create();
     Event.create();
