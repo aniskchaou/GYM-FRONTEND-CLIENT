@@ -56,6 +56,6 @@ sequelize.sync().then(function () {
     SystemSettings.create(seeds.getSytemSettings())
    // Attendance.create()
 }).then(function (res) {
-    console.log(res.get({ plain: true }));
+    //console.log(res.get({ plain: true }));
 });
 
