@@ -28,6 +28,8 @@ var HeaderSettings = require("../models/settings/header.settings.models.js")
 var LocalisationSettings = require("../models/settings/localisation.settings.models.js")
 var NotificationSettings = require("../models/settings/notification.settings.models.js")
 var Attendance = require("../models/attendance.models.js")
+
+
 sequelize.sync().then(function () {
     DashboardSettings.create(seeds.getDashboardSettings())
     EmailSettings.create(seeds.getEmailSettings())
@@ -35,26 +37,10 @@ sequelize.sync().then(function () {
     HeaderSettings.create(seeds.getHeaderSettings())
     LocalisationSettings.create(seeds.getLocalisationSettings())
     NotificationSettings.create(seeds.getNotificationSettings())
-    User.create();
-    /*Activity.create();
-    Booking.create();
-    Course.create();
-    Event.create();
-    Excerice.create();
-    Expense.create();
-    Groupe.create();
-    History.create();*/
+    User.create(seeds.userSeed);
     Member.create(seeds.memberSeed);
-    /*Payment.create();
-    Presence.create();
-    Product.create();
-    Revenue.create();
-    TypeSub.create()*/
     HomePage.create(seeds.homePageSeed)
-    //Currency.create()
-    //Staff.create()
     SystemSettings.create(seeds.getSytemSettings())
-   // Attendance.create()
 }).then(function (res) {
     console.log(res.get({ plain: true }));
 });

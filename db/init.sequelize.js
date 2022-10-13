@@ -18,9 +18,4 @@ var sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 });
 
 
-
-
-
-
-
 module.exports = sequelize;

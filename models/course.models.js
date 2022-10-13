@@ -7,18 +7,3 @@ var Course = sequelize.define('course', {
 
 
 module.exports = Course;
-/*
-Class Name *
-Select Staff Member *
-Select Staff Member
-Select Assistant Staff Member
-Select Staff Member
-Location
-Class Booking Fees *
-$
-Select Days *
-Start Time *
-9:15
-End Time *
-9:15
-*/

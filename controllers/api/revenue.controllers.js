@@ -1,16 +1,14 @@
-const { getIncomeByDate,findRevenueById, updateRevenue, deleteRevenueById, deleteAllRevenues, findAllRevenues, createRevenue } = require("../../services/revenue.services");
+const { getIncomeByDate, findRevenueById, updateRevenue, deleteRevenueById, deleteAllRevenues, findAllRevenues, createRevenue } = require("../../services/revenue.services");
 
 
 
 exports.create = (req, res) => {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
     const patient = {
         name: req.body.name,
         amount: req.body.amount,

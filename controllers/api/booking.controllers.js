@@ -3,14 +3,13 @@ const { findBookingById, updateBooking, deleteBookingById, deleteAllBookings, fi
 
 
 exports.create = (req, res) => {
-    // Validate request
+
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
     const patient = {
         namepatient: req.body.namepatient,
         emailpatient: req.body.emailpatient,

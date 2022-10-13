@@ -1,17 +1,19 @@
 
-    
-    
+
+
 const Staff = require("../models/staff.models");
-exports.getCount=(req, res)=>{
-Staff.count()
-               .then(data=>{
-               res.send({'staff':data})
-               }).catch(err => {
-                             res.status(500).send({
-                                 message:
-                                     err.message || "Some error occurred while retrieving users."
-                             });
-                         });
+
+
+exports.getCount = (req, res) => {
+    Staff.count()
+        .then(data => {
+            res.send({ 'staff': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
 }
 exports.findAllStaffs = (res) => {
 
@@ -27,7 +29,7 @@ exports.findAllStaffs = (res) => {
         });
 }
 
-exports.createStaff = (activity,res) => {
+exports.createStaff = (activity, res) => {
     Staff.create(activity)
         .then(data => {
             res.send(data);
@@ -74,7 +76,7 @@ exports.deleteStaffById = (id, res) => {
         });
 }
 
-exports.updateStaff = (id, req,res) => {
+exports.updateStaff = (id, req, res) => {
     Staff.update(req.body, {
         where: { id: id }
     })

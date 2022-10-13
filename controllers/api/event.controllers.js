@@ -3,14 +3,12 @@ const { findEventById, updateEvent, deleteEventById, deleteAllEvents, findAllEve
 
 
 exports.create = (req, res) => {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
 
     const patient = {
         event_name: req.body.event_name,

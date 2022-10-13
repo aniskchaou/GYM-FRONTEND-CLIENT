@@ -1,8 +1,8 @@
 {
   "appName": "GYM",
   "showLogo": 1,
-  "email": "Sequelize.STRING",
-  "address" : "Sequelize.STRING",
+  "email": "contact@gym.com",
+  "address": "34 NW Bobcat Lane, St. Robert",
   "entrepriseName": "GYM",
-  "logo" : "Sequelize.STRING"
+  "logo": ""
 }

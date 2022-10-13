@@ -1,18 +1,16 @@
-const {getCount, findGroupeById, updateGroupe, deleteGroupeById, deleteAllGroupes, findAllGroupes, createGroupe } = require("../../services/groupe.services");
+const { getCount, findGroupeById, updateGroupe, deleteGroupeById, deleteAllGroupes, findAllGroupes, createGroupe } = require("../../services/groupe.services");
 
-exports.getCount=(req, res)=>{
-getCount(req,res)
+exports.getCount = (req, res) => {
+    getCount(req, res)
 }
 
 exports.create = (req, res) => {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
     const patient = {
         name: req.body.groupe_name,
     }

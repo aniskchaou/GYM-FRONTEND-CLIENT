@@ -1,7 +1,7 @@
-const {getCount, getMemberByDate,findMemberById, updateMember, deleteMemberById, deleteAllMembers, findAllMembers, createMember } = require("../../services/member.services");
+const { findMemberByName, getCount, getMemberByDate, findMemberById, updateMember, deleteMemberById, deleteAllMembers, findAllMembers, createMember } = require("../../services/member.services");
 
-exports.getCount=(req, res)=>{
-getCount(req,res)
+exports.getCount = (req, res) => {
+    getCount(req, res)
 }
 
 exports.getMemberByDate = (req, res) => {
@@ -9,21 +9,28 @@ exports.getMemberByDate = (req, res) => {
 };
 
 exports.create = (req, res) => {
-    // Validate request
+
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
+
     const patient = {
-        namepatient: req.body.namepatient,
-        emailpatient: req.body.emailpatient,
-        birth: req.body.birth,
-        telephone: req.body.telephone,
-        gender: req.body.gender,
-        address: req.body.address
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        birth_date: req.body.birth_date,
+        groupe: req.body.groupe,
+        activity: req.body.activity,
+        address: req.body.address,
+        mobile: req.body.mobile,
+        weight: req.body.weight,
+        size: req.body.size,
+        start_date: req.body.start_date,
+        end_date: req.body.end_date,
+        type: req.body.type,
+        coach: req.body.coach
     }
 
     createMember(patient, res)
@@ -32,6 +39,11 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
 
     findAllMembers(res)
+};
+
+exports.search = (req, res) => {
+    const name = req.params.name;
+    findMemberByName(name, res)
 };
 
 exports.findOne = (req, res) => {

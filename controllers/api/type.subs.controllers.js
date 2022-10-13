@@ -3,23 +3,22 @@ const { findTypeSubsById, updateTypeSubs, deleteTypeSubsById, deleteAllTypeSubss
 
 
 exports.create = (req, res) => {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
+
     const patient = {
-         member: req.body.member,
-           category: req.body.category,
-           period: req.body.period,
-           limit: req.body.limit,
-           amount: req.body.amount,
-           description: req.body.description,
-           fee: req.body.fee,
-           time_payment: req.body.time_payment
+        member: req.body.member,
+        category: req.body.category,
+        period: req.body.period,
+        limit: req.body.limit,
+        amount: req.body.amount,
+        description: req.body.description,
+        fee: req.body.fee,
+        time_payment: req.body.time_payment
 
     }
 
