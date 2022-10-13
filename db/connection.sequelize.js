@@ -7,7 +7,7 @@ module.exports = {
     DB: "dcs6tuuaplp5pd",
     dialect: "postgres",
     port: 5432,
-    native: true,
+    native: false,
     pool: {
         max: 5,
         min: 0,
