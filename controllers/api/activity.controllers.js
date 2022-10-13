@@ -1,13 +1,8 @@
 
+const { getCount, getActivityByDate, findActivityById, updateActivity, deleteActivityById, deleteAllActivitys, findAllActivitys, createActivity } = require("../../services/activity.services");
 
-
-
-
-
-const { getCount,getActivityByDate,findActivityById, updateActivity, deleteActivityById, deleteAllActivitys, findAllActivitys, createActivity } = require("../../services/activity.services");
-
-exports.getCount=(req, res)=>{
-getCount(req,res)
+exports.getCount = (req, res) => {
+    getCount(req, res)
 }
 
 exports.getActivityByDate = (req, res) => {
@@ -15,14 +10,13 @@ exports.getActivityByDate = (req, res) => {
 };
 
 exports.create = (req, res) => {
-    // Validate request
+
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
         return;
     }
-    // Create a user
 
     const patient = {
         category: req.body.category,

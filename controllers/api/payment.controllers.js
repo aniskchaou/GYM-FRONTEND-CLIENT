@@ -3,7 +3,7 @@ const { findPaymentById, updatePayment, deletePaymentById, deleteAllPayments, fi
 
 
 exports.create = (req, res) => {
-    // Validate request
+
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
@@ -11,7 +11,7 @@ exports.create = (req, res) => {
         return;
     }
 
-    // Create a user
+
     const patient = {
         date: req.body.validity,
         member: req.body.member,

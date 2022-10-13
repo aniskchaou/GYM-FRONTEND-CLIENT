@@ -1,15 +1,16 @@
 
 const Groupe = require("../models/groupe.models");
-exports.getCount=(req, res)=>{
-Groupe.count()
-               .then(data=>{
-               res.send({'group':data})
-               }).catch(err => {
-                             res.status(500).send({
-                                 message:
-                                     err.message || "Some error occurred while retrieving users."
-                             });
-                         });
+
+exports.getCount = (req, res) => {
+    Groupe.count()
+        .then(data => {
+            res.send({ 'group': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
 }
 exports.findAllGroupes = (res) => {
 
@@ -25,7 +26,7 @@ exports.findAllGroupes = (res) => {
         });
 }
 
-exports.createGroupe = (groupe,res) => {
+exports.createGroupe = (groupe, res) => {
     Groupe.create(groupe)
         .then(data => {
             res.send(data);
@@ -72,7 +73,7 @@ exports.deleteGroupeById = (id, res) => {
         });
 }
 
-exports.updateGroupe = (id, req,res) => {
+exports.updateGroupe = (id, req, res) => {
     Groupe.update(req.body, {
         where: { id: id }
     })

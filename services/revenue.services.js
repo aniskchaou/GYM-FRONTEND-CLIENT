@@ -15,7 +15,7 @@ exports.findAllRevenues = (res) => {
         });
 }
 
-exports.createRevenue = (revenue,res) => {
+exports.createRevenue = (revenue, res) => {
     Revenue.create(revenue)
         .then(data => {
             res.send(data);
@@ -62,7 +62,7 @@ exports.deleteRevenueById = (id, res) => {
         });
 }
 
-exports.updateRevenue = (id, req,res) => {
+exports.updateRevenue = (id, req, res) => {
     Revenue.update(req.body, {
         where: { id: id }
     })
@@ -100,36 +100,35 @@ exports.deleteAllRevenues = () => {
         });
 }
 
-exports.getIncomeByDate= (res) => {
-console.log("sfgsfgd")
-  Revenue.findAll()
+exports.getIncomeByDate = (res) => {
+
+    Revenue.findAll()
         .then(data => {
-        var dates=[]
-                var amounts=[]
-                const monthNames = ["January", "February", "March", "April", "May", "June",
-                  "July", "August", "September", "October", "November", "December"
-                ];
-                data.forEach(function(element) {
-                 const d = new Date(element.date)
-                 if(element.date!=null&& element.amount!=null)
-                 {
-                 dates.push( monthNames[d.getMonth()])
-                          amounts.push(element.amount )
-                 }
+            var dates = []
+            var amounts = []
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            data.forEach(function (element) {
+                const d = new Date(element.date)
+                if (element.date != null && element.amount != null) {
+                    dates.push(monthNames[d.getMonth()])
+                    amounts.push(element.amount)
+                }
 
-                });
+            });
 
-          const response = {
-            labels:dates,
-            datasets: [
-              {
-                label: 'expenses' ,
-                data: amounts,
-                borderColor: '#ffa400',
-                backgroundColor: '#ffa400',
-              }
-            ],
-          };
+            const response = {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'expenses',
+                        data: amounts,
+                        borderColor: '#ffa400',
+                        backgroundColor: '#ffa400',
+                    }
+                ],
+            };
             res.send(response);
         })
         .catch(err => {

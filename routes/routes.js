@@ -20,19 +20,19 @@ var staffController = require('../controllers/api/staff.controllers')
 var settingsController = require('../controllers/api/settings.controllers')
 var frontOfficeController = require('../controllers/api/front.office.controllers')
 var attendanceController = require('../controllers/api/attendance.controllers')
-//users
-routerr.post('/api/user', userController.create)
-routerr.get('/api/user', userController.findAll)
-routerr.get("/api/user/:id", userController.findOne);
-routerr.put("/api/user/:id", userController.update);
-routerr.delete("/api/user/:id", userController.delete);
-routerr.delete("/api/user", userController.deleteAll);
 
+
+//users
+routerr.post("/api/user/login", userController.login);
+routerr.put("/api/user/:id", userController.update);
+routerr.get("/api/user/:id", userController.findOne);
 
 //Home
 routerr.get('/', indexController.getHome)
 routerr.get("/api/frontoffice", frontOfficeController.findOne);
 routerr.put("/api/frontoffice/:id", frontOfficeController.update);
+routerr.get("/admin", indexController.signin);
+
 
 //activity
 routerr.post('/api/activity', activityController.create)
@@ -43,17 +43,9 @@ routerr.delete("/api/activity/:id", activityController.delete);
 routerr.delete("/api/activity", activityController.deleteAll);
 routerr.get("/api/activitybydate", activityController.getActivityByDate);
 routerr.get('/api/count/activity', activityController.getCount)
-
 routerr.get("/api/attendance", attendanceController.findAll);
-//booking
-/*
-routerr.post('/api/activity', activityController.create)
-routerr.get('/api/activity', activityController.findAll)
-routerr.get("/api/activity/:id", activityController.findOne);
-routerr.put("/api/activity/:id", activityController.update);
-routerr.delete("/api/activity/:id", activityController.delete);
-routerr.delete("/api/activity", activityController.deleteAll);
-*/
+
+//attendance
 routerr.post('/api/attendance', attendanceController.create)
 routerr.get('/api/attendance', attendanceController.findAll)
 
@@ -98,6 +90,8 @@ routerr.put("/api/groupe/:id", groupeController.update);
 routerr.delete("/api/groupe/:id", groupeController.delete);
 routerr.delete("/api/groupe", groupeController.deleteAll);
 routerr.get('/api/count/group', groupeController.getCount)
+
+
 //history
 routerr.post('/api/history', historyController.create)
 routerr.get('/api/history', historyController.findAll)
@@ -115,6 +109,8 @@ routerr.delete("/api/member/:id", memberController.delete);
 routerr.delete("/api/member", memberController.deleteAll);
 routerr.get("/api/memberbydate", memberController.getMemberByDate);
 routerr.get('/api/count/member', memberController.getCount)
+routerr.get('/api/search/member/:name', memberController.search)
+
 
 //payment
 routerr.post('/api/payment', paymentController.create)
@@ -148,6 +144,7 @@ routerr.put("/api/revenue/:id", revenueController.update);
 routerr.delete("/api/revenue/:id", revenueController.delete);
 routerr.delete("/api/revenue", revenueController.deleteAll);
 routerr.get("/api/incomebydate", revenueController.getIncomeByDate);
+
 //typesubs
 routerr.post('/api/typesubs', typeSubsController.create)
 routerr.get('/api/typesubs', typeSubsController.findAll)
@@ -164,33 +161,28 @@ routerr.put("/api/staff/:id", staffController.update);
 routerr.delete("/api/staff/:id", staffController.delete);
 routerr.delete("/api/staff", staffController.deleteAll);
 routerr.get('/api/count/staff', staffController.getCount)
+
+
 //settings
 routerr.get("/api/syssettings", settingsController.findSystemSettings);
 routerr.put("/api/edit/systemsettings/:id", settingsController.updateSystemSettings);
 routerr.get("/api/restore/syssettings/:id", settingsController.restoreSystemSettings);
-
-
 routerr.get("/api/dashboardsettings", settingsController.findDashboardSettings);
 routerr.put("/api/edit/dashboardsettings/:id", settingsController.updateDashboardSettings);
 routerr.get("/api/restore/dashboard/:id", settingsController.restoreDashboardSettings);
-
 routerr.get("/api/emailtemplatesettings", settingsController.findEmailTemplateSettings);
-//routerr.put("/api/edit/emailtemplatesettings/:id", settingsController.updateEmailTemplateSettings);
-
 routerr.get("/api/emailsettings", settingsController.findEmailSettings);
 routerr.put("/api/edit/emailsettings/:id", settingsController.updateEmailSettings);
-
 routerr.get("/api/footersettings", settingsController.findFooterSettings);
 routerr.put("/api/edit/footersettings/:id", settingsController.updateFooterSettings);
 routerr.get("/api/restore/footer/:id", settingsController.restoreFooterSettings);
-
 routerr.get("/api/headersettings", settingsController.findHeaderSettings);
 routerr.put("/api/edit/headersettings/:id", settingsController.updateHeaderSettings);
 routerr.get("/api/restore/header/:id", settingsController.restoreHeaderSettings);
-
 routerr.get("/api/localisationsettings", settingsController.findLocalisationSettings);
 routerr.put("/api/edit/localisationsettings/:id", settingsController.updateLocalisationSettings);
-
 routerr.get("/api/notificationsettings", settingsController.findNotificationSettings);
 routerr.put("/api/edit/notificationsettings/:id", settingsController.updateNotificationsSettings);
+
+
 module.exports = routerr;
