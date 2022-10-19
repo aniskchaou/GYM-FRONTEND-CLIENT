@@ -1,4 +1,4 @@
-const { findMemberByName, getCount, getMemberByDate, findMemberById, updateMember, deleteMemberById, deleteAllMembers, findAllMembers, createMember } = require("../../services/member.services");
+const { findAllNumber, findToday, findMemberDate, findMemberByName, getCount, getMemberByDate, findMemberById, updateMember, deleteMemberById, deleteAllMembers, findAllMembers, createMember } = require("../../services/member.services");
 
 exports.getCount = (req, res) => {
     getCount(req, res)
@@ -63,4 +63,21 @@ exports.delete = (req, res) => {
 
 exports.deleteAll = (req, res) => {
     deleteAllMembers(req, res)
+};
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findToday = (req, res) => {
+    findToday(res)
+};
+exports.findWeek = (req, res) => {
+    findWeek(res)
+};
+exports.findMonth = (req, res) => {
+    findMonth(res)
+};
+
+exports.findMemberDate = (req, res) => {
+    findMemberDate(res)
 };

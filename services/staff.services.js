@@ -113,3 +113,34 @@ exports.deleteAllStaffs = () => {
             });
         });
 }
+
+exports.findAllNumber = (res) => {
+    Staff.count().then(data => {
+        console.log(data)
+        res.send({ "all": data })
+    })
+};
+exports.findWorkout = (res) => {
+    Staff.count({
+        where: [{ "role": 'WorkOut' }]
+    }).then(data => {
+        res.send({ "workout": data })
+
+    })
+};
+exports.findFitness = (res) => {
+    Staff.count({
+        where: [{ "role": 'Fitness' }]
+    }).then(data => {
+        res.send({ "fitness": data })
+
+    })
+};
+exports.findYoga = (res) => {
+    Staff.count({
+        where: [{ "role": 'Yoga' }]
+    }).then(data => {
+        res.send({ "yoga": data })
+
+    })
+};

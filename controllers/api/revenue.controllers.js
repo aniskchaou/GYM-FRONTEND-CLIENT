@@ -1,4 +1,4 @@
-const { getIncomeByDate, findRevenueById, updateRevenue, deleteRevenueById, deleteAllRevenues, findAllRevenues, createRevenue } = require("../../services/revenue.services");
+const { findAllNumber, findToday, findWeek, findMonth, getIncomeByDate, findRevenueById, updateRevenue, deleteRevenueById, deleteAllRevenues, findAllRevenues, createRevenue } = require("../../services/revenue.services");
 
 
 
@@ -44,4 +44,18 @@ exports.deleteAll = (req, res) => {
 
 exports.getIncomeByDate = (req, res) => {
     getIncomeByDate(res)
+};
+
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findToday = (req, res) => {
+    findToday(res)
+};
+exports.findWeek = (req, res) => {
+    findWeek(res)
+};
+exports.findMonth = (req, res) => {
+    findMonth(res)
 };

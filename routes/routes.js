@@ -184,5 +184,56 @@ routerr.put("/api/edit/localisationsettings/:id", settingsController.updateLocal
 routerr.get("/api/notificationsettings", settingsController.findNotificationSettings);
 routerr.put("/api/edit/notificationsettings/:id", settingsController.updateNotificationsSettings);
 
+routerr.get("/api/count/all", typeSubsController.findAllNumber);
+routerr.get("/api/count/gold", typeSubsController.findGold);
+routerr.get("/api/count/premium", typeSubsController.findPremium);
+routerr.get("/api/count/silver", typeSubsController.findSilver);
+routerr.get("/api/analytics/category", typeSubsController.findSubscriptionByCategory);
+
+
+
+
+
+routerr.get("/api/count/staff/all", staffController.findAllNumber);
+routerr.get("/api/count/staff/workout", staffController.findWorkout);
+routerr.get("/api/count/staff/yoga", staffController.findYoga);
+routerr.get("/api/count/staff/fitness", staffController.findFitness);
+routerr.get("/api/analytics/staff/role", staffController.findStaffByRole);
+
+
+routerr.get("/api/count/expense/all", expenseController.findAllNumber);
+routerr.get("/api/count/expense/today", expenseController.findToday);
+routerr.get("/api/count/expense/week", expenseController.findWeek);
+routerr.get("/api/count/expense/month", expenseController.findMonth);
+
+
+routerr.get("/api/count/income/all", revenueController.findAllNumber);
+routerr.get("/api/count/income/today", revenueController.findToday);
+routerr.get("/api/count/income/week", revenueController.findWeek);
+routerr.get("/api/count/income/month", revenueController.findMonth);
+routerr.get("/api/count/income/incomebydate", revenueController.getIncomeByDate);
+
+routerr.get("/api/count/event/all", eventController.findAllNumber);
+routerr.get("/api/count/event/today", eventController.findToday);
+routerr.get("/api/count/event/week", eventController.findWeek);
+routerr.get("/api/count/event/month", eventController.findMonth);
+routerr.get("/api/count/event/eventbydate", eventController.findEventByDate);
+
+routerr.get("/api/count/member/all", memberController.findAllNumber);
+routerr.get("/api/count/member/today", memberController.findToday);
+routerr.get("/api/count/member/week", memberController.findWeek);
+routerr.get("/api/count/member/month", memberController.findMonth);
+routerr.get("/api/count/member/memberbydate", memberController.findMemberDate);
+
+
+routerr.get("/api/count/attendance/all", attendanceController.findAllNumber);
+routerr.get("/api/count/attendance/today", attendanceController.findToday);
+
 
 module.exports = routerr;
+
+
+
+
+
+

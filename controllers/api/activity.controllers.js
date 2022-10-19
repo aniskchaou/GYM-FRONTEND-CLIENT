@@ -51,3 +51,20 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
     deleteAllActivitys(req, res)
 };
+
+exports.findAllNumber = (req, res) => {
+    findAllTypeSubs(res)
+};
+exports.findYoga = (req, res) => {
+    findAllTypeSubs(res)
+};
+exports.findWorkout = (req, res) => {
+    findAllTypeSubs(res)
+};
+exports.findFitness = (req, res) => {
+    findAllTypeSubs(res)
+};
+
+exports.findActivityByCategory = (req, res) => {
+    findAllTypeSubs(res)
+};

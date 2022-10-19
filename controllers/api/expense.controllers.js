@@ -1,4 +1,4 @@
-const { getExpenseByDate, findExpenseById, updateExpense, deleteExpenseById, deleteAllExpenses, findAllExpenses, createExpense } = require("../../services/expense.services");
+const { findAllNumber, findToday, findWeek, findMonth, getExpenseByDate, findExpenseById, updateExpense, deleteExpenseById, deleteAllExpenses, findAllExpenses, createExpense } = require("../../services/expense.services");
 
 
 
@@ -44,5 +44,20 @@ exports.deleteAll = (req, res) => {
 
 exports.getExpenseByDate = (req, res) => {
     getExpenseByDate(res)
+};
+
+
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findToday = (req, res) => {
+    findToday(res)
+};
+exports.findWeek = (req, res) => {
+    findWeek(res)
+};
+exports.findMonth = (req, res) => {
+    findMonth(res)
 };
 

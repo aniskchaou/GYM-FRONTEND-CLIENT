@@ -3,9 +3,11 @@ const TypeSub = require("../models/type.subs.models");
 
 exports.findAllTypeSubs = (res) => {
 
-    TypeSub.findAll( {order: [
-                                ['createdAt', 'DESC']
-                            ],})
+    TypeSub.findAll({
+        order: [
+            ['createdAt', 'DESC']
+        ],
+    })
         .then(data => {
             res.send(data);
         })
@@ -17,7 +19,7 @@ exports.findAllTypeSubs = (res) => {
         });
 }
 
-exports.createTypeSubs = (groupe,res) => {
+exports.createTypeSubs = (groupe, res) => {
     TypeSub.create(groupe)
         .then(data => {
             res.send(data);
@@ -64,7 +66,7 @@ exports.deleteTypeSubsById = (id, res) => {
         });
 }
 
-exports.updateTypeSubs = (id, req,res) => {
+exports.updateTypeSubs = (id, req, res) => {
     TypeSub.update(req.body, {
         where: { id: id }
     })
@@ -101,3 +103,68 @@ exports.deleteAllTypeSubs = () => {
             });
         });
 }
+
+exports.findAllNumber = (res) => {
+    TypeSub.count().then(data => {
+        console.log(data)
+        res.send({ "all": data })
+    })
+};
+exports.findGold = (res) => {
+    TypeSub.count({
+        where: [{ "category": 'Gold' }]
+    }).then(data => {
+        res.send({ "gold": data })
+
+    })
+};
+exports.findPremium = (res) => {
+    TypeSub.count({
+        where: [{ "category": 'Premium' }]
+    }).then(data => {
+        res.send({ "premium": data })
+
+    })
+};
+exports.findSilver = (res) => {
+    TypeSub.count({
+        where: [{ "category": 'Silver' }]
+    }).then(data => {
+        res.send({ "silver": data })
+
+    })
+};
+
+exports.findSubscriptionByCategory = (res) => {
+    /* categories = []
+      TypeSub.count({
+          where: [{ "category": 'Gold' }]
+      }).then(data => {
+  
+          categories.push(data)
+  
+  
+      })
+  
+      TypeSub.count({
+          where: [{ "category": 'Premium' }]
+      }).then(data => {
+  
+          categories.push(data)
+  
+  
+      })
+  
+  
+      TypeSub.count({
+          where: [{ "category": 'Silver' }]
+      }).then(data => {
+  
+          categories.push(data)
+  
+      })*/
+
+
+
+
+};

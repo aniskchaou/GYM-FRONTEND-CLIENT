@@ -1,3 +1,4 @@
+const config = require("../config/connection.server");
 const { findAll } = require("../services/frontoffice/home.page.services");
 
 exports.getHome = async function (req, res, next) {
@@ -6,7 +7,7 @@ exports.getHome = async function (req, res, next) {
 
 exports.signin = async function (req, res, next) {
     res.writeHead(302, {
-        'Location': 'http://localhost:3000/'
+        'Location': config.frontend
     });
     res.end();
 
