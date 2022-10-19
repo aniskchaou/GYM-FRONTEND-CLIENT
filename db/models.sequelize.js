@@ -37,10 +37,10 @@ sequelize.sync().then(function () {
     HeaderSettings.create(seeds.getHeaderSettings())
     LocalisationSettings.create(seeds.getLocalisationSettings())
     NotificationSettings.create(seeds.getNotificationSettings())
-    User.create(seeds.userSeed);
-    Member.create(seeds.memberSeed);
-    HomePage.create(seeds.homePageSeed)
     SystemSettings.create(seeds.getSytemSettings())
+    User.create(seeds.userSeed);
+    HomePage.create(seeds.homePageSeed)
+
 }).then(function (res) {
     //console.log(res.get({ plain: true }));
 });

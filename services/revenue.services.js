@@ -138,3 +138,34 @@ exports.getIncomeByDate = (res) => {
             });
         });
 }
+
+
+
+exports.findAllNumber = (res) => {
+    Revenue.count()
+        .then(data => {
+            res.send({ 'all': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findToday = (res) => {
+    Revenue.count()
+        .then(data => {
+            res.send({ 'today': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findWeek = (res) => {
+
+};
+exports.findMonth = (res) => {
+
+};

@@ -173,3 +173,70 @@ exports.getMemberByDate = (res) => {
             });
         });
 }
+
+exports.findAllNumber = (res) => {
+    Member.count()
+        .then(data => {
+            res.send({ 'all': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findToday = (res) => {
+    Member.count()
+        .then(data => {
+            res.send({ 'today': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findWeek = (req, res) => {
+
+};
+exports.findMonth = (req, res) => {
+
+};
+
+exports.findMemberDate = (res) => {
+    Member.findAll()
+        .then(data => {
+            var dates = []
+            var amounts = []
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            data.forEach(function (element) {
+                const d = new Date(element.birth_date)
+                if (element.groupe != null) {
+                    dates.push(monthNames[d.getMonth()])
+                    amounts.push(element.id)
+                }
+
+            });
+
+            const response = {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'expenses',
+                        data: amounts,
+                        borderColor: '#ffa400',
+                        backgroundColor: '#ffa400',
+                    }
+                ],
+            };
+            res.send(response);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};

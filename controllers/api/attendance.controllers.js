@@ -1,4 +1,4 @@
-const { findAllAttendences, createAttendence } = require("../../services/attendance.services");
+const { findAllNumber, findToday, findMonth, findAbsent, findAllAttendences, createAttendence } = require("../../services/attendance.services");
 
 exports.findAll = (req, res) => {
     findAllAttendences(res)
@@ -16,4 +16,18 @@ exports.create = (req, res) => {
         date: req.body.date
     }
     createAttendence(patient, res)
+};
+
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findToday = (req, res) => {
+    findToday(res)
+};
+exports.findMonth = (req, res) => {
+    findMonth(res)
+};
+exports.findAbsent = (req, res) => {
+    findAbsent(res)
 };

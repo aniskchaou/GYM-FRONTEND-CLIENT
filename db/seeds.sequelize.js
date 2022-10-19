@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 exports.userSeed = {
     name: "admin",
     birthday: "1/1/1999",
@@ -9,12 +11,7 @@ exports.userSeed = {
     username: "admin"
 }
 
-exports.memberSeed = {
-    name: 'Sequelize.STRING',
-    date: 'Sequelize.STRING',
-    address: 'Sequelize.STRING',
-    telephone: 'Sequelize.STRING'
-}
+
 
 exports.currencySeed = {
     name: 'USD',
@@ -48,7 +45,7 @@ exports.homePageSeed = {
 }
 
 
-const fs = require('fs');
+
 
 exports.getSytemSettings = () => {
     var rawdata = fs.readFileSync('db/settings/system.json');

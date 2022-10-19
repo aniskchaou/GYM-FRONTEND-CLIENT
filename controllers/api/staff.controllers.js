@@ -1,6 +1,6 @@
 
 
-const { getCount, findStaffById, updateStaff, deleteStaffById, deleteAllStaffs, findAllStaffs, createStaff } = require("../../services/staff.services");
+const { findFitness, findStaffByRole, findWorkout, findYoga, findAllNumber, getCount, findStaffById, updateStaff, deleteStaffById, deleteAllStaffs, findAllStaffs, createStaff } = require("../../services/staff.services");
 
 exports.getCount = (req, res) => {
     getCount(req, res)
@@ -48,4 +48,21 @@ exports.delete = (req, res) => {
 
 exports.deleteAll = (req, res) => {
     deleteAllStaffs(req, res)
+};
+
+exports.findStaffByRole = (req, res) => {
+    findStaffByRole(res)
+};
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findYoga = (req, res) => {
+    findYoga(res)
+};
+exports.findWorkout = (req, res) => {
+    findWorkout(res)
+};
+exports.findFitness = (req, res) => {
+    findFitness(res)
 };

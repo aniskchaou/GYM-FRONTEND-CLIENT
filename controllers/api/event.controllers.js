@@ -1,4 +1,4 @@
-const { findEventById, updateEvent, deleteEventById, deleteAllEvents, findAllEvents, createEvent } = require("../../services/event.services");
+const { findEventByDate, findAllNumber, findToday, findWeek, findMonth, findEventById, updateEvent, deleteEventById, deleteAllEvents, findAllEvents, createEvent } = require("../../services/event.services");
 
 
 
@@ -43,4 +43,22 @@ exports.delete = (req, res) => {
 
 exports.deleteAll = (req, res) => {
     deleteAllEvents(req, res)
+};
+
+
+exports.findAllNumber = (req, res) => {
+    findAllNumber(res)
+};
+exports.findToday = (req, res) => {
+    findToday(res)
+};
+exports.findWeek = (req, res) => {
+    findWeek(res)
+};
+exports.findMonth = (req, res) => {
+    findMonth(res)
+};
+
+exports.findEventByDate = (req, res) => {
+    findEventByDate(res)
 };

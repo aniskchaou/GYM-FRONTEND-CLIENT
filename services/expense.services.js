@@ -15,7 +15,7 @@ exports.findAllExpenses = (res) => {
         });
 }
 
-exports.createExpense = (expense,res) => {
+exports.createExpense = (expense, res) => {
     Expense.create(expense)
         .then(data => {
             res.send(data);
@@ -28,7 +28,7 @@ exports.createExpense = (expense,res) => {
         });
 }
 
-exports.findExpenseById = (id,res) => {
+exports.findExpenseById = (id, res) => {
     Expense.findByPk(id)
         .then(data => {
             res.send(data);
@@ -62,7 +62,7 @@ exports.deleteExpenseById = (id, res) => {
         });
 }
 
-exports.updateExpense = (id, req,res) => {
+exports.updateExpense = (id, req, res) => {
     Expense.update(req.body, {
         where: { id: id }
     })
@@ -100,35 +100,34 @@ exports.deleteAllExpenses = () => {
         });
 }
 
-exports.getExpenseByDate= (res) => {
+exports.getExpenseByDate = (res) => {
 
-  Expense.findAll()
+    Expense.findAll()
         .then(data => {
-        var dates=[]
-        var amounts=[]
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"
-        ];
-        data.forEach(function(element) {
-         const d = new Date(element.date)
-         if(element.date!=null&& element.amount!=null)
-         {
-         dates.push( monthNames[d.getMonth()])
-                  amounts.push(element.amount )
-         }
+            var dates = []
+            var amounts = []
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            data.forEach(function (element) {
+                const d = new Date(element.date)
+                if (element.date != null && element.amount != null) {
+                    dates.push(monthNames[d.getMonth()])
+                    amounts.push(element.amount)
+                }
 
-        });
-          const response = {
-            labels:dates,
-            datasets: [
-              {
-                label: 'expenses ($)' ,
-                data: amounts,
-                borderColor: '#ffa400',
-                backgroundColor: '#ffa400',
-              }
-            ],
-          };
+            });
+            const response = {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'expenses ($)',
+                        data: amounts,
+                        borderColor: '#ffa400',
+                        backgroundColor: '#ffa400',
+                    }
+                ],
+            };
             res.send(response);
         })
         .catch(err => {
@@ -138,3 +137,33 @@ exports.getExpenseByDate= (res) => {
             });
         });
 }
+
+
+exports.findAllNumber = (res) => {
+    Expense.count()
+        .then(data => {
+            res.send({ 'all': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findToday = (res) => {
+    Expense.count()
+        .then(data => {
+            res.send({ 'today': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findWeek = (res) => {
+
+};
+exports.findMonth = (res) => {
+
+};

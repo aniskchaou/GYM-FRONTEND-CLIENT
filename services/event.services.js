@@ -15,7 +15,7 @@ exports.findAllEvents = (res) => {
         });
 }
 
-exports.createEvent = (event,res) => {
+exports.createEvent = (event, res) => {
     Event.create(event)
         .then(data => {
             res.send(data);
@@ -62,7 +62,7 @@ exports.deleteEventById = (id, res) => {
         });
 }
 
-exports.updateEvent = (id, req,res) => {
+exports.updateEvent = (id, req, res) => {
     Event.update(req.body, {
         where: { id: id }
     })
@@ -99,3 +99,71 @@ exports.deleteAllEvents = () => {
             });
         });
 }
+
+
+exports.findAllNumber = (res) => {
+    Event.count()
+        .then(data => {
+            res.send({ 'all': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findToday = (res) => {
+    Event.count()
+        .then(data => {
+            res.send({ 'today': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findWeek = (res) => {
+
+};
+exports.findMonth = (res) => {
+
+};
+
+exports.findEventByDate = (res) => {
+    Event.findAll()
+        .then(data => {
+            var dates = []
+            var amounts = []
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            data.forEach(function (element) {
+                const d = new Date(element.event_date)
+                if (element.event_date != null && element.event_name != null) {
+                    dates.push(monthNames[d.getMonth()])
+                    amounts.push(element.id)
+                }
+
+            });
+
+            const response = {
+                labels: dates,
+                datasets: [
+                    {
+                        label: 'expenses',
+                        data: amounts,
+                        borderColor: '#ffa400',
+                        backgroundColor: '#ffa400',
+                    }
+                ],
+            };
+            res.send(response);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};

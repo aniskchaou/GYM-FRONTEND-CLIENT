@@ -1,7 +1,7 @@
 
 const Attendance = require("../models/attendance.models");
 
-exports.findAllAttendences= (res) => {
+exports.findAllAttendences = (res) => {
 
     Attendance.findAll()
         .then(data => {
@@ -15,7 +15,7 @@ exports.findAllAttendences= (res) => {
         });
 }
 
-exports.createAttendence = (a,res) => {
+exports.createAttendence = (a, res) => {
     Attendance.create(a)
         .then(data => {
             res.send(data);
@@ -27,3 +27,30 @@ exports.createAttendence = (a,res) => {
             });
         });
 }
+
+exports.findAllNumber = (res) => {
+    Attendance.count()
+        .then(data => {
+            res.send({ 'all': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findToday = (res) => {
+    Attendance.count()
+        .then(data => {
+            res.send({ 'today': data })
+        }).catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving users."
+            });
+        });
+};
+exports.findMonth = (res) => {
+};
+exports.findAbsent = (res) => {
+};
