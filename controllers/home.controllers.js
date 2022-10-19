@@ -7,7 +7,7 @@ exports.getHome = async function (req, res, next) {
 
 exports.signin = async function (req, res, next) {
     res.writeHead(302, {
-        'Location': config.frontend
+        'Location': 'https://gym-man--app.herokuapp.com/'
     });
     res.end();
 

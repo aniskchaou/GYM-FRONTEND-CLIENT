@@ -42,6 +42,6 @@ sequelize.sync().then(function () {
     HomePage.create(seeds.homePageSeed)
 
 }).then(function (res) {
-    console.log(res.get({ plain: true }));
+    //console.log(res.get({ plain: true }));
 });
 
