@@ -1,6 +1,6 @@
 const dbConfig = require("./connection.sequelize.js");
 var Sequelize = require('sequelize');
-
+/*
 var sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
@@ -16,7 +16,8 @@ var sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
         idle: dbConfig.pool.idle
     }
 });
-
+*/
+var sequelize = new Sequelize('sqlite::memory:');
 
 module.exports = sequelize;
 
