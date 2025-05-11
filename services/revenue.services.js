@@ -2,8 +2,8 @@
 const Revenue = require("../models/revenue.models");
 
 exports.findAllRevenues = (res) => {
-
-    Revenue.findAll()
+  return []
+    /* Revenue.findAll()
         .then(data => {
             res.send(data);
         })
@@ -12,7 +12,7 @@ exports.findAllRevenues = (res) => {
                 message:
                     err.message || "Some error occurred while retrieving users."
             });
-        });
+        }); */
 }
 
 exports.createRevenue = (revenue, res) => {

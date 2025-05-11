@@ -15,9 +15,6 @@ exports.findAllUsers = (res) => {
         });
 }
 
-
-
-
 exports.loginUser = (username, password, res) => {
     User.findOne({ where: { username: username, password: password } })
         .then(data => {

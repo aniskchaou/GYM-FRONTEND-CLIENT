@@ -2,7 +2,8 @@
 const Attendance = require("../models/attendance.models");
 
 exports.findAllAttendences = (res) => {
-
+    return []
+/* 
     Attendance.findAll()
         .then(data => {
             res.send(data);
@@ -12,7 +13,7 @@ exports.findAllAttendences = (res) => {
                 message:
                     err.message || "Some error occurred while retrieving users."
             });
-        });
+        }); */
 }
 
 exports.createAttendence = (a, res) => {

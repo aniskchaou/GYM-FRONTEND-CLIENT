@@ -26,7 +26,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    findAllTypeSubs(res)
+    //findAllTypeSubs(res)
 };
 
 exports.findOne = (req, res) => {
